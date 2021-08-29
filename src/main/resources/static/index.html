@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="setContent(content)">
+
 <head>
 
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Typerite</title>
+    <title>Movie Review Site</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -15,9 +18,9 @@
 
     <!-- CSS
     ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/vendor.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
 
     <!-- script
     ================================================== -->
@@ -598,8 +601,10 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/js/plugins.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
 
 </body>
+</th:block>
+</html>
