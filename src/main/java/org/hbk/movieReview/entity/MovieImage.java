@@ -5,22 +5,25 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Table(name = "m_genre")
-public class Genre {
+@Getter
+@ToString(exclude = "movie")
+@Table(name = "mr_image")
+public class MovieImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long gno;
+    private Long inum;
 
-    private String genre;
+    private String uuid;
 
-    @OneToOne
-    @JoinColumn(name = "movie_id")
+    private String imgName;
+
+    private String path;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Movie movie;
 
 }

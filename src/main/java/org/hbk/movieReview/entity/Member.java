@@ -2,9 +2,9 @@ package org.hbk.movieReview.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Builder
@@ -16,12 +16,21 @@ import javax.persistence.Table;
 public class Member extends BaseEntity{
 
     @Id
-    private String mid;
-
     private String email;
 
-    private String pw;
+    private String password;
 
     private String nickname;
 
+    private String name;
+
+    private boolean fromSocial;
+
+    @ElementCollection(fetch = FetchType.LAZY)
+    @Builder.Default
+    private Set<MrMemberRole> roleSet = new HashSet<>();
+
+    public void addMemberRole(MrMemberRole mrMemberRole){
+        roleSet.add(mrMemberRole);
+    }
 }
