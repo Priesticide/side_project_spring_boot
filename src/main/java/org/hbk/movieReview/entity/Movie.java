@@ -17,9 +17,6 @@ public class Movie extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long mno;
 
-    @OneToOne(mappedBy = "movie")
-    private Genre genre;
-
     private String title;
 
     private String content;
